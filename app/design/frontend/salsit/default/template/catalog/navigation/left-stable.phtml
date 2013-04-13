@@ -1,0 +1,55 @@
+<?php
+/**
+ * Category left navigation
+ *
+ * @see Mage_Catalog_Block_Navigation
+ */
+?>
+<?php if (!Mage::registry('current_category')) return ?>
+<?php $_categories = $this->getCurrentChildCategories() ?>
+<?php $_count = is_array($_categories) ? count($_categories) : $_categories->count(); ?>
+<?php if($_count): ?>
+<div class="block block-layered-nav">
+    <div class="block-content">
+		<ul>
+		<?php foreach ($_categories as $_category): ?>
+			<?php if($_category->getIsActive()): ?>
+			<li>
+				<a href="<?php echo $this->getCategoryUrl($_category) ?>"<?php if ($this->isCategoryActive($_category)): ?> class="current"<?php endif; ?>><?php echo $this->htmlEscape($_category->getName()) ?></a> <?php //echo $_category->getProductCount() ?>
+			</li>
+			<?php endif; ?>
+		<?php endforeach ?>
+		</ul>
+    </div>
+</div>
+<?php endif; ?>
+
+
+<div id="leftnav" class="hidden">
+    <?php $helper = $this->helper('catalog/category') ?>
+    <?php $categories = $this->getStoreCategories() ?>
+    <?php if (count($categories) > 0): ?>
+        <ul id="leftnav-tree" class="level0">
+            <?php foreach($categories as $category): ?>
+                <li class="level0<?php if ($this->isCategoryActive($category)): ?> active<?php endif; ?>">
+                    <a href="<?php echo $helper->getCategoryUrl($category) ?>"><span><?php echo $this->escapeHtml($category->getName()) ?></span></a>
+
+                        <?php $subcategories = $category->getChildren() ?>
+                        <?php if (count($subcategories) > 0): ?>
+                            <ul id="leftnav-tree-<?php echo $category->getId() ?>" class="level1">
+                            	<li><?php count($subcategories) ?></li>
+                                <?php foreach($subcategories as $subcategory): ?>
+                                    <li class="level1<?php if ($this->isCategoryActive($subcategory)): ?> active<?php endif; ?>">
+                                        <a href="<?php echo $helper->getCategoryUrl($subcategory) ?>"><?php echo $this->escapeHtml(trim($subcategory->getName(), '- ')) ?></a>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                            <script type="text/javascript">decorateList('leftnav-tree-<?php echo $category->getId() ?>', 'recursive')</script>
+                        <?php endif; ?>
+
+                </li>
+            <?php endforeach; ?>
+        </ul>
+        <script type="text/javascript">decorateList('leftnav-tree', 'recursive')</script>
+    <?php endif; ?>
+</div>

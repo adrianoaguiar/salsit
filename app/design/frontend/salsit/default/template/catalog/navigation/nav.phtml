@@ -1,0 +1,14 @@
+<?php
+
+// Load categories and loop through them
+//$cats = $this->getStoreCategories();
+$cats = Mage::helper('catalog/category')->getStoreCategories();
+
+?>
+
+<ul>
+    <?php foreach($cats as $cat) : ?>
+	<?php //var_dump($cat->debug()); ?>
+        <li><a href="<?php echo $cat->getUrl(); ?>" class="<?php if ($this->isCategoryActive($cat)): ?>active<?php endif; ?>"><?php echo $cat->getName(); ?></a>
+    <?php endforeach; ?>
+</ul>

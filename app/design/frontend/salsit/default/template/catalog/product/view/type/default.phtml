@@ -1,0 +1,7 @@
+<?php $_product = $this->getProduct() ?>  
+ 
+<?php if($_product->isSaleable()): ?>  
+    <span class="availability available"><?php echo $this->__('In stock') ?></span>  
+<?php else: ?>  
+    <span class="availability unavailable"><?php echo $this->__('Out of stock') ?></span>  
+<?php endif; ?>  

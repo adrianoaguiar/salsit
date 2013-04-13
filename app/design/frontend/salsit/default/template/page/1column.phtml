@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<?php echo $this->getChildHtml('head') ?>
+</head>
+<body<?php echo $this->getBodyClass()?' class="'.$this->getBodyClass().'"':'' ?>>
+
+
+<header class="site-header cf">
+	<div class="wrapper">
+		<?php echo $this->getChildHtml('header') ?>
+	</div>
+</header>
+
+<nav class="site-nav cf">
+	<div class="wrapper">
+		<?php echo $this->getChildHtml('nav'); ?>
+	</div>
+</nav>
+
+<div class="site-content one_column cf">
+	<div class="wrapper">
+		<div class="content cf">
+			<?php echo $this->getChildHtml('breadcrumbs') ?>
+			<?php echo $this->getChildHtml('content'); ?>
+		</div>
+	</div>
+</div>
+
+<footer class="site-footer cf">
+	<div class="wrapper">
+		<?php echo $this->getChildHtml('footer') ?>
+	</div>
+</footer>
+
+
+<?php echo $this->getAbsoluteFooter() ?>
+
+</body>
+</html>

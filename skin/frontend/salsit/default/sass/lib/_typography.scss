@@ -1,0 +1,130 @@
+/* =========== Typography START */
+
+.left { float: left; }
+.right { float: right; }
+.text-left, .a-left { text-align: left; }
+.text-right, .a-right { text-align: right; }
+.text-center, .a-center { text-align: center; }
+.nowrap { white-space: nowrap; }
+.center		{ display: inline-block; margin: auto; }
+
+.white	{ color: $white; }
+.black	{ color: $black; }
+
+.underline	{ border-bottom: 1px solid; }
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.5em; 
+    margin-bottom: 0.25em; font-weight: 700;
+    &.soft {
+        font-weight: 300;
+        color: lighten($black, 50%);
+    }
+}
+
+h1 { @include rem(font-size, 2rem); }
+h2 { @include rem(font-size, 1.8rem); }
+h3 { @include rem(font-size, 1.4rem); }
+h4 { @include rem(font-size, 1.25rem); }
+h5 { @include rem(font-size, 1rem); }
+h6 { @include rem(font-size, 1rem); }
+
+
+h1  { font-family: "Hand of Sean", cursive; font-weight: normal; margin: 0.5em 0 1em; }
+
+
+
+p { 
+    margin-bottom: $margin-bottom; 
+    &.lead { 
+        font-size: 1.2em; 
+        line-height: 1.5em; 
+    }
+}
+
+a { 
+    color: lighten( $color-brand, 30% ); 
+    text-decoration: none; @include single-transition( all, 0.2s, linear );
+	
+    &:hover { color: $color-brand; }
+	&:active { color: lighten($color-brand, 15%); }
+}
+
+small { font-size: 0.85em; color: lighten($black, 50%); }
+
+em { font-style: italic; }
+
+b, strong,
+.bold { font-weight: bold; }
+
+code, pre { font-family: 'courier new', monospace; }
+
+abbr { border-bottom: 1px dotted lighten($black, 50%); }
+
+del { text-decoration: line-through; }
+
+mark { background-color: lighten(yellow, 35%); }
+
+hr { 
+    background-color: transparent; 
+    border: solid darken($white, 25%);
+    border-width: 1px 0 0; 
+    clear: both; 
+    margin: 2em $margin-bottom; 
+}
+
+blockquote { 
+    color: lighten($black, 50%); 
+    font-family: Georgia, serif;
+    font-size: 1.2em; 
+    font-style: italic; 
+    line-height: 1.5em; 
+    margin-bottom: $margin-bottom; 
+    padding: 0 0 0 2em;
+    position: relative;
+    &:before { 
+        color: lighten($black, 75%); 
+        content: "\201C";
+        display: block;
+        font-size: 5em;
+        left: -0.15em;
+        position: absolute;
+        top: 0.25em;
+    }
+    cite {
+        color: lighten($black, 35%);
+        display: block;
+        font-size: 0.85em;
+        &:before {  content: "\2014 \0020"; }
+    }
+}
+
+figure {
+    display: inline-block;
+    max-width: 100%;
+    img { 
+        display: block;
+        width: 100%;
+    }
+    figcaption {
+        color: blue;
+    }
+}
+
+ul, ol { margin: 0 0 $margin-bottom 1.5em; }
+ul { list-style: disc; }
+ol { list-style: decimal; }
+ol ol	{ list-style-type: lower-alpha; }
+ol ol ol { list-style-type: lower-roman; }
+
+dl {
+    margin-bottom: $margin-bottom;
+    dt { font-weight: bold; }
+    dd { margin-left: $margin-bottom; }
+    &.advanced {
+        dt { float: left; width: 35%; }
+        dd { float: left; width: 65%; }
+    }
+}
+
+/* =========== Typography END */

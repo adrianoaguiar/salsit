@@ -1,0 +1,649 @@
+//  Taiga Boilerplate 1.0
+//  Copyright 2012 by Studio Wolf
+//  Licensed under the MIT license
+
+
+/*!
+Author: Stas Baydakov
+Author URI: http://thesblab.com
+*/
+
+
+// ========================= Variables
+
+$font-family: "Maven Pro", sans-serif;
+$font-size: 16px;
+
+$min-width: 1040px;
+$max-width: 1280px;
+$margin-bottom: 1.25em;
+$default-gutter: 2; // Specify just the unit number
+
+$color-brand: #ff33cc;
+$color-error: #d24226;
+$color-success: #5DA423;
+$black: #050505;
+$white: #fff;
+$body-color: #333;
+
+
+$peach			: #f6c3a4;
+$accent_color	: rgb(245, 241, 240);
+$pink			: #FF33CC;
+
+$wrapper	: container;
+$divider	: 1px dotted #ececec;
+
+
+
+// ========================= Includes
+
+@import "compass/css3";
+@import "compass/utilities";
+
+// Base
+@import "lib/_reset";
+@import "lib/_rem";
+@import "lib/_functions";
+@import "lib/_mixins";
+@import "lib/_grid";
+@import "lib/_typography";
+@import "lib/_layout";
+
+// Modules
+@import "lib/_forms";
+@import "lib/_tables";
+@import "lib/_labels";
+@import "lib/_buttons";
+@import "lib/_icons";
+@import "lib/_messages";
+//@import "lib/_pagination";
+@import "lib/_modal";
+@import "lib/_tabs";
+@import "lib/_panels";
+@import "lib/_print";
+
+
+
+@import "jquery.bxslider";
+//@import "uniform.default";
+
+
+
+
+// ======================== Site Specific Declarations
+
+// Font-face
+@import url(//fonts.googleapis.com/css?family=Maven+Pro:400,500,700);
+
+@font-face {
+    font-family: 'Akzidenz Grotesk Ext';
+    src: font-url('akzidenzgrotesk-extended.eot');
+    src: font-url('akzidenzgrotesk-extended.eot?#iefix') format('embedded-opentype'),
+         font-url('akzidenzgrotesk-extended.woff') format('woff'),
+         font-url('akzidenzgrotesk-extended.ttf') format('truetype'),
+         font-url('akzidenzgrotesk-extended.svg#akzidenz-grotesk_bq_extendeRg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* @font-face {
+    font-family: 'Akzidenz Grotesk Ext';
+    src: font-url('akzidenzgrotesk-extendeditalic.eot');
+    src: font-url('akzidenzgrotesk-extendeditalic.eot?#iefix') format('embedded-opentype'),
+         font-url('akzidenzgrotesk-extendeditalic.woff') format('woff'),
+         font-url('akzidenzgrotesk-extendeditalic.ttf') format('truetype'),
+         font-url('akzidenzgrotesk-extendeditalic.svg#akzidenz-grotesk_bq_extendeIt') format('svg');
+    font-weight: normal;
+    font-style: italic;
+} */
+
+@font-face {
+    font-family: 'Hand of Sean';
+    src: font-url('handsean-webfont.eot');
+    src: font-url('handsean-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('handsean-webfont.woff') format('woff'),
+         font-url('handsean-webfont.ttf') format('truetype'),
+         font-url('handsean-webfont.svg#hand_of_seanregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+// Helper classes
+.fluid	{ @include fluid; }
+.hidden	{ visibility: hidden; }
+.hide	{ display: none !important; }
+
+
+
+
+
+
+
+
+a { color: #a0a0a0; text-decoration: none; @include single-transition( all, 0.2s, linear );
+	&:hover { color: #bbb; }
+}
+
+h2 { margin-top: 0; }
+
+.padding	{ padding: 20px 30px; overflow: auto; }
+.simple   { @include border-radius(4px); }
+
+ul,
+ol		{ @include no-bullets; margin: 0; }
+
+
+.v-fix { display: inline-block; @include displayfix; }
+
+
+
+/* -- Typography -- */
+input, select, textarea	{ color: $body-color; text-shadow: none; font-weight: normal; @include rem(font-size, 1.125rem); }
+
+
+
+
+
+.customSelect { 
+	background: image-url("icons/arrow-down.png") no-repeat 90% 50%;
+}
+.customSelect.customSelectHover {
+// Styles for when the select box is hovered */
+}
+.customSelect.customSelectOpen {
+// Styles for when the select box is open */
+}
+.customSelect.customSelectFocus {
+// Styles for when the select box is in focus */
+}
+.customSelectInner {
+// You can style the inner box too */
+}
+
+
+
+
+
+
+
+.social			{ 
+	li			{ float: left; margin-right: 0.5em; @include border-radius( 0.25em ); }
+	a			{ display: block; height: 2em; width: 2em; text-indent: -9999px; }
+	
+	#facebook	{
+		a		{ background: #3B5998 image-url("social_facebook.png") 50% 50% no-repeat; }
+	}
+	#twitter	{ 
+		a		{ background: #0097C5 image-url("social_twitter.png") 50% 50% no-repeat; }
+	}
+	#instagram	{
+		a		{ background: #d02525 image-url("social_instagram.png") 50% 50% no-repeat; }
+	}
+	#pinterest	{
+		a		{ background: #BD2031 image-url("social_pinterest.png") 50% 50% no-repeat; }
+	}
+}
+
+
+
+
+.block	{
+	.block-title	{ @include rem(font-size, 1.5rem); margin: 0 0 0.5em; }
+	.block-content	{
+		li			{
+			&.active,
+			&.current	{ color: $color-brand;
+				a		{ color: $color-brand;
+					&:hover		{ color: $color-brand; }
+				}
+			}
+		}
+	}
+}
+
+
+.sidebar	{
+	.block-layered-nav	{
+		text-align: right; margin-right: 4em; text-transform: uppercase; line-height: 2; @include rem(font-size, 0.875rem);
+
+		a	{
+			&:hover		{ color: $color-brand; }
+		}
+
+		.subcategory	{
+			.subcategory	{
+					display: block; font-size: 0.875em; margin: 0 1em 1em;
+			}
+
+		}
+	}
+}
+
+
+
+.page-title { margin-bottom: 0.5em; }
+
+.category-title		{
+	position: absolute; z-index: -1; opacity: 0; color: white;
+}
+
+.category-image		{
+	img		{
+		width: 100%; height: auto;
+	}
+}
+
+
+.breadcrumbs	{ padding: 0 1em; border-bottom: $divider; margin: 0 -0.25em 1em; color: rgb(118, 131, 127); @include rem(font-size, 0.75rem);
+
+	a	{ color: rgb(192, 195, 194);
+		&:hover		{ color: darken( rgb(192, 195, 194), 10% ); }
+	}
+	li	{ float: left; 
+		span	{ margin-right: 0.5em; }
+	}
+}
+
+.toolbar { clear: both; line-height: 3em; margin: 0 0 1em; background: image-url("side-bar2.png"); @include border-radius( 0.25em ); text-transform: uppercase; color: $body-color; @include rem(font-size, 0.75rem);
+
+	select		{ padding: 0 1.5em 0 0; width: auto; @include appearance('none'); background: transparent;  background: image-url("icons/dark/arrow-down-sm.png") 95% 50% no-repeat; border: 0; @include box-shadow(none); color: $body-color; font-size: 1em; font-weight: 700; }
+
+	> div		{ float: left; text-align: center; }
+	
+	.amount		{ width: 25%; }
+	
+	.limiter	{ width: 20%; }
+	
+	.pager	 	{ width: 30%;
+		> *		{ display: inline-block; vertical-align: middle; }
+		li 		{ float: left; padding: 0 0.5em; }
+		.current	{ font-weight: bold; }
+	}
+	
+	.sorter		{ float: right; width: 20%; }
+}
+
+
+
+.buttons-set	{
+	.back-link	{ float: left; }
+	button		{ float: right; }
+}
+
+.btn-proceed-checkout	{
+	float: right;
+}
+
+
+
+.arrow	{ 
+	width: 16px; height: 16px; text-indent: -9999px; display: inline-block; @include displayfix;
+	background-position: 50% 50%; background-repeat: no-repeat;
+	&.asc	{
+		background-image: image-url("icons/dark/arrow-up.png");
+	}
+	&.desc	{
+		background-image: image-url("icons/dark/arrow-down.png");
+	}
+}
+
+.loading		{ 
+	&:after		{
+		content: " "; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba($white, 0.8); background-image: image-url("loading-white.gif"); background-position: 50% 50%; background-repeat: no-repeat;
+	}
+	&.white:after		{
+		background-color: rgba($white, 0.8); background-image: image-url("loading-white.gif");
+	}
+	&.black:after		{
+		background-color: rgba($black, 0.8); background-image: image-url("loading-black.gif");
+	}
+}
+
+
+// Limited Rack Side Gradients (note all category tie in)
+.category-products	{
+	.bx-viewport	{
+		&:before,
+		&:after		{
+			content: " "; position: absolute; z-index: 10; top: 0; bottom: 0; width: 1em;
+		}
+		&:before { left: 0; @include background-image( linear-gradient(left, white, rgba(255,255,255,0)) ); }
+		&:after  { right: 0; @include background-image( linear-gradient(right, white, rgba(255,255,255,0)) ); }
+
+	}
+}
+
+
+
+.products-grid	{ clear: both;
+
+	.item	{ float: left; width: 25%; padding: 0.25em 0.25em 1.25em; text-align: center;
+
+		a					{ display: inline-block; }
+		&:nth-child(4n+1)	{ clear: left; }
+		img					{ display: block; margin: auto; height: auto; width: 100%; @include border-radius( 0.25em ); }
+		
+		.product-image		{ }
+		.product-name		{ font-size: 0.875em; font-family: "Hand of Sean"; font-weight: normal; }
+	}
+
+	.price	{ 
+		text-transform: uppercase; font-weight: 700; @include rem(font-size, 0.825rem);
+
+		&:before	{ content: 'our '; }
+
+		&.regular	{ text-transform: lowercase; color: lighten($body-color, 45%); @include rem(font-size, 0.675rem);
+			&:before	{ content: 'retail '; }
+		}
+		&.special	{ 
+			&:before	{ content: 'our '; }
+		}
+	}
+	
+	&.limited-rack	{  
+		.item	{ width: 33.3%; text-align: center; padding: 4em 0; position: relative;
+			
+			a					{ color: rgb(118, 131, 127); }
+			img					{ max-width: 100%; width: auto; position: relative; z-index: -1; }
+			&:nth-child(4n+1)	{ clear: none; }
+			&:after {
+				content: ""; position: absolute; top: 0; left: 0; bottom: 0; right: 0; z-index: -1; background: image-url("frame.png") 50% 50% no-repeat; background-size: 100% 95%; margin: 0 1em;
+			}
+
+			.product-name	{ position: absolute; left: 0; right: 0; bottom: 5em; font-family: "Hand of Sean"; font-weight: normal; margin: 0 4em; }
+			.price_box		{ position: absolute; left: 0; right: 0; bottom: 0.5em; }
+
+			.qty {
+				position: absolute; top: 3em; right: 14%; z-index: -1; background: image-url("splatter2.png") top right no-repeat; width: 66px; height: 72px; padding: 1.25em 0 1em 0.75em; font-family: "Hand of Sean"; @include rem(font-size, 0.9rem);
+			}
+		}
+	}
+}
+
+
+
+
+// Product
+.product	{
+	.gallery	{ float: left; width: 50%; padding-right: 2%; border-right: $divider;
+		
+		.hero_image		{ padding: 0 0 1em 1em; float: right; width: 80%;
+			img			{ height: auto; width: 100%; display: block; }
+		}
+		.more_images	{ float: right; width: 20%;
+			li			{ margin: 0 0 2%;
+				img		{ display: block; width: 100%; height: auto; padding: 0.25em; }
+			}
+		}
+	}
+	
+	.info		{ float: right; width: 50%; padding-left: 2%; 
+		h1		{  }
+		h2		{ font-family: 'Akzidenz Grotesk Ext', "Maven Pro", sans-serif; font-weight: normal; }
+		.details	{ margin-bottom: 2em; overflow: auto; }
+		
+		.price_box	{ margin-right: 5em; text-align: center; display: inline-block; vertical-align: middle; }
+		.availability	{ display: inline-block; vertical-align: middle; display: none; }
+	}
+
+	.button		{
+		float: right; @include transition(color 0.3s ease-in);
+	}
+
+	.related	{
+		clear: both; margin: 1em auto; border-top: $divider;
+	}
+}
+
+.options	{
+	margin: 0 0 3em; background: rgba($color-brand, 0.2); padding: 1em; @extend .cf; @include border-radius( 0.25em );
+}
+.product-options	{ float: left;
+	dl		{ margin-bottom: 0.5em; }
+	dd		{ margin: 0; }
+	
+	label	{ color: rgb(124, 68, 31); font-weight: 700; font-size: 1em; width: 35%;
+		em	{ margin: 0 0.25em; }
+	}
+	.input-box	{ margin: 0.25em 0; overflow: auto;
+		dd		{ float: left; }
+	}
+	
+	.required-notice	{ float: left; margin: 0; color: rgb(190,190,190); font-size: 0.75em; }
+
+	.label-radio-configurable	{
+		overflow: hidden; width: 50px; height: 42px; display: block; margin: 0 0.5em 0 0; position: relative;
+	}
+}
+.short_description		{
+	font-size: 12px;
+}
+
+
+.category-hot-styles	{
+
+	.products-grid 	{
+		.product-name	{
+			a			{
+				color: $color-brand;
+			}
+		}
+		.price_box	{
+			display: none;
+		}
+	}
+
+
+	.price	{ 
+		text-transform: uppercase; font-weight: 700; @include rem(font-size, 0.825rem);
+
+		&:before	{ content: 'our '; }
+
+		&.regular	{ text-transform: lowercase; color: lighten($body-color, 45%); @include rem(font-size, 0.675rem);
+			&:before	{ content: 'retail '; }
+		}
+		&.special	{ 
+			&:before	{ content: 'our '; }
+		}
+	}
+
+
+	.product		{
+		.gallery		{ width: 70%; border: none;
+			.hero_image	{ width: 70%; padding: 5em; position: relative;
+				&:after {
+					content: ""; position: absolute; top: 0; left: 0; bottom: 0; right: 0; z-index: -1; background: image-url("frame.png") 50% 50% no-repeat; background-size: 100% 95%; margin: 0 1em;
+				}
+			}
+			.more_images	{
+				float: right; width: 30%; padding: 1em 2.5em;
+
+				img		{
+					padding: 1em 2em;
+				}
+			}
+		}
+		.info			{ float: left; width: 100%; }
+		.description	{ display: none; }
+		.related		{ float: right; width: 30%; margin: 0; clear: none; padding-left: 2%; border: none; text-align: center;
+			img			{ width: 100%; }
+
+			.block-title		{ display: none; }
+			.block-subtitle		{ display: none; }
+			.mini-products-list		{
+				.item		{
+					display: block; margin: 0 0 0.5em; position: relative; overflow: auto; /* float: left; width: 33.3%; padding: 2.5%;
+
+					&:nth-child(3n+1)	{ clear: both; } */
+
+					.product-image		{ width: 24%; float: left; }
+					.product-details	{ width: 60%; position: absolute; top: 0; bottom: 0; right: 0; }
+					.product-name	{ 
+						position: absolute; left: 0; right: 0; bottom: 55%; margin: 0;
+
+						@include rem(font-size, 0.875rem); font-family: "Hand of Sean"; font-weight: normal;
+						a			{ color: $color-brand; }
+					}
+					.price_box			{
+						position: absolute; left: 0; right: 0; top: 55%;
+					}
+				}
+			}
+
+			.price		{ display: block; }
+		}
+
+		.details		{ display: none; }
+		.options		{ display: none; }
+	}
+}
+
+.category-sale	{
+	.products-grid	{
+		.price	{
+			&.special	{ color: $color-brand; }
+		}
+	}
+}
+
+
+
+
+// Salsit Product Radio Button
+.ss-radio	{
+	position: absolute; top: 0; bottom: 0; left: 0; right: 0; background: #FED5F4 image-url('size-button.png') no-repeat; @include transition(all 0.15s ease-in); cursor: pointer; text-align: center; line-height: 42px; @include rem(font-size, 1rem);
+
+	&.checked	{
+		background: lighten($accent_color, 10%);
+	}
+}
+
+
+
+.form-list	{
+	margin: 0 0 1em;
+
+	li		{  }
+	input[type=radio]	{ margin-right: 1em; }
+}
+
+
+
+
+
+// Customer Account - Address Book
+.addresses-list		{
+	.item			{ width: 50%; float: left; }
+}
+
+
+
+.cart	{
+	table	{
+		td	{ vertical-align: middle; }
+	}
+	
+	.buttons	{ margin: 0; }
+}
+
+.customer-dob	{
+	> div		{ float: left; padding: 0 0 0.5% 0.5%; }
+	.dob-month	{ width: 33.3%; padding-left: 0; }
+	.dob-day	{ width: 33.3%; }
+	.dob-year	{ width: 33.3%; }
+}
+.customer-name	{ margin: 0;
+	.field		{
+		float: left; padding: 0 0 0 0.5%; width: 50%; margin: 0;
+
+		&:first-child	{ padding-left: 0; }
+	}
+}
+
+
+
+// Cart
+.checkout-types		{ margin-bottom: 1em; }
+
+
+#checkoutSteps	{
+	
+	.section	{
+
+		border-bottom: 1px solid lighten($color-brand, 35%);
+
+		&:first-child	{
+			.step-title	{
+				@include border-radius(0.5em 0.5em 0 0);
+			}
+		}
+		&:last-child	{ 
+			.step-title	{
+				@include border-radius(0 0 0.5em 0.5em); border-bottom: 0;
+			}
+		}
+
+		@include single-transition(all, 0.35s, ease-in);
+
+		.step-title		{ background: lighten($color-brand, 35%); position: relative; overflow: hidden;
+			.number		{ color: rgb(197, 127, 127); @include rem(font-size, 4rem); top: -50%; left: 0; position: absolute; line-height: 10rem; margin: 0 0.5em; @include border-radius(500px); background: white; @include rem(width, 12rem); @include rem(height, 10rem); text-align: center; }
+			h2			{ line-height: 3em; @include rem(margin, 0 1rem 0 20rem); }
+			> a			{ position: absolute; right: 0.5em; bottom: 0.5em; color: $white; }
+		}
+		
+		.step			{ padding: 2em; position: relative; background: rgb(253, 249, 248);
+			form		{ width: 100%; }
+			
+			.fields		{ overflow: hidden;
+				.field	{ width: 50%; float: left; padding: 0 0 0.5% 0.5%;
+					&:first-child	{ padding-left: 0; }
+				}
+			}
+			.wide		{ padding-bottom: 0.5em; }
+		}
+
+		.buttons-set	{ opacity: 1 !important; }
+
+		.please-wait	{ @extend .loading; height: 0px; display: block; overflow: hidden; width: 0px; }
+		
+		&.allow		{
+			.step-title		{ background: lighten($color-brand, 25%); cursor: pointer; }
+		}
+		&.active	{
+			.step-title		{ background: lighten($color-brand, 15%); }
+		}
+	}
+}
+.validation-advice	{ color: red; }
+
+
+
+
+#totop	{
+	position: fixed; left: 1.5em; bottom: 8em; width: 4em; height: 4em; background: image-url("totop.png"); background-size: 100%; cursor: pointer; opacity: 0.9; border-radius: 50em;
+
+	&:hover		{
+		opacity: 1;
+	}
+	&:active	{
+		@include box-shadow( 0 0 3em rgba(0, 0, 0, 0.1) inset ); @include transition( all 0.1s linear );
+	}
+}
+
+
+
+// Page Specific Tweaks START
+
+.cms-home {
+	.content	{
+		text-align: center;
+
+		a	{ opacity: 1; display: inline-block; @include displayfix;
+			&:hover	{ opacity: 0.9; }
+		}
+	}
+}
+
+// Page Specific Tweaks END

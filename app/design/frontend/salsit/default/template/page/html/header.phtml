@@ -1,0 +1,10 @@
+<a id="logo" href="<?php echo $this->getUrl('') ?>"><?php echo $this->getLogoAlt() ?></a>
+
+<form id="search_box" action="<?php echo $this->helper('catalogsearch')->getResultUrl() ?>" method="get">  
+	<input type="text" name="<?php echo $this->helper('catalogsearch')->getQueryParamName() ?>" value="<?php echo $this->helper('catalogsearch')->getEscapedQueryText() ?>" class="input-text border" placeholder="Search" />
+	<button>Search</button>
+</form>
+
+<nav id="top_nav">
+	<?php echo $this->getChildHtml('topLinks') ?>
+</nav>
