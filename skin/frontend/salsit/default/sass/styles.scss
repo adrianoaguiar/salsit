@@ -316,19 +316,8 @@ input, select, textarea	{ color: $body-color; text-shadow: none; font-weight: no
 }
 
 
-
-.products-grid	{ clear: both;
-
-	.item	{ float: left; width: 25%; padding: 0.25em 0.25em 1.25em; text-align: center;
-
-		a					{ display: inline-block; }
-		&:nth-child(4n+1)	{ clear: left; }
-		img					{ display: block; margin: auto; height: auto; width: 100%; @include border-radius( 0.25em ); }
-		
-		.product-image		{ }
-		.product-name		{ font-size: 0.875em; font-family: "Hand of Sean"; font-weight: normal; }
-	}
-
+.product,
+.products-grid	{
 	.price	{ 
 		text-transform: uppercase; font-weight: 700; @include rem(font-size, 0.825rem);
 
@@ -340,6 +329,19 @@ input, select, textarea	{ color: $body-color; text-shadow: none; font-weight: no
 		&.special	{ 
 			&:before	{ content: 'our '; }
 		}
+	}
+}
+
+.products-grid	{ clear: both;
+
+	.item	{ float: left; width: 25%; padding: 0.25em 0.25em 1.25em; text-align: center;
+
+		a					{ display: inline-block; }
+		&:nth-child(4n+1)	{ clear: left; }
+		img					{ display: block; margin: auto; height: auto; width: 100%; @include border-radius( 0.25em ); }
+		
+		.product-image		{ }
+		.product-name		{ font-size: 0.875em; font-family: "Hand of Sean"; font-weight: normal; }
 	}
 	
 	&.limited-rack	{  
