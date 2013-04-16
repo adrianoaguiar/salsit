@@ -248,7 +248,7 @@ input, select, textarea	{ color: $body-color; text-shadow: none; font-weight: no
 
 .toolbar { clear: both; line-height: 3em; margin: 0 0 1em; background: image-url("side-bar2.png"); @include border-radius( 0.25em ); text-transform: uppercase; color: $body-color; @include rem(font-size, 0.75rem);
 
-	select		{ padding: 0 1.5em 0 0; width: auto; @include appearance('none'); background: transparent;  background: image-url("icons/dark/arrow-down-sm.png") 95% 50% no-repeat; border: 0; @include box-shadow(none); color: $body-color; font-size: 1em; font-weight: 700; }
+	select		{ width: auto; @include appearance('none'); background: transparent;  /* padding: 0 1.5em 0 0; background: image-url("icons/dark/arrow-down-sm.png") 95% 50% no-repeat; */ border: 0; @include box-shadow(none); color: $body-color; font-size: 1em; font-weight: 700; }
 
 	> div		{ float: left; text-align: center; }
 	
@@ -450,57 +450,57 @@ input, select, textarea	{ color: $body-color; text-shadow: none; font-weight: no
 			&:before	{ content: 'our '; }
 		}
 	}
-
-
-	.product		{
-		.gallery		{ width: 70%; border: none;
-			.hero_image	{ width: 70%; padding: 5em; position: relative;
-				&:after {
-					content: ""; position: absolute; top: 0; left: 0; bottom: 0; right: 0; z-index: -1; background: image-url("frame.png") 50% 50% no-repeat; background-size: 100% 95%; margin: 0 1em;
-				}
-			}
-			.more_images	{
-				float: right; width: 30%; padding: 1em 2.5em;
-
-				img		{
-					padding: 1em 2em;
-				}
-			}
-		}
-		.info			{ float: left; width: 100%; }
-		.description	{ display: none; }
-		.related		{ float: right; width: 30%; margin: 0; clear: none; padding-left: 2%; border: none; text-align: center;
-			img			{ width: 100%; }
-
-			.block-title		{ display: none; }
-			.block-subtitle		{ display: none; }
-			.mini-products-list		{
-				.item		{
-					display: block; margin: 0 0 0.5em; position: relative; overflow: auto; /* float: left; width: 33.3%; padding: 2.5%;
-
-					&:nth-child(3n+1)	{ clear: both; } */
-
-					.product-image		{ width: 24%; float: left; }
-					.product-details	{ width: 60%; position: absolute; top: 0; bottom: 0; right: 0; }
-					.product-name	{ 
-						position: absolute; left: 0; right: 0; bottom: 55%; margin: 0;
-
-						@include rem(font-size, 0.875rem); font-family: "Hand of Sean"; font-weight: normal;
-						a			{ color: $color-brand; }
-					}
-					.price_box			{
-						position: absolute; left: 0; right: 0; top: 55%;
-					}
-				}
-			}
-
-			.price		{ display: block; }
-		}
-
-		.details		{ display: none; }
-		.options		{ display: none; }
-	}
 }
+
+.product.hot_style_product		{
+	.gallery		{ width: 70%; border: none;
+		.hero_image	{ width: 70%; padding: 5em; position: relative;
+			&:after {
+				content: ""; position: absolute; top: 0; left: 0; bottom: 0; right: 0; z-index: -1; background: image-url("frame.png") 50% 50% no-repeat; background-size: 100% 95%; margin: 0 1em;
+			}
+		}
+		.more_images	{
+			float: right; width: 30%; padding: 1em 2.5em;
+
+			img		{
+				padding: 1em 2em;
+			}
+		}
+	}
+	.info			{ float: left; width: 100%; }
+	.description	{ display: none; }
+	.related		{ float: right; width: 30%; margin: 0; clear: none; padding-left: 2%; border: none; text-align: center;
+		img			{ width: 100%; }
+
+		.block-title		{ display: none; }
+		.block-subtitle		{ display: none; }
+		.mini-products-list		{
+			.item		{
+				display: block; margin: 0 0 0.5em; position: relative; overflow: auto; /* float: left; width: 33.3%; padding: 2.5%;
+
+				&:nth-child(3n+1)	{ clear: both; } */
+
+				.product-image		{ width: 24%; float: left; }
+				.product-details	{ width: 60%; position: absolute; top: 0; bottom: 0; right: 0; }
+				.product-name	{ 
+					position: absolute; left: 0; right: 0; bottom: 55%; margin: 0;
+
+					@include rem(font-size, 0.875rem); font-family: "Hand of Sean"; font-weight: normal;
+					a			{ color: $color-brand; }
+				}
+				.price_box			{
+					position: absolute; left: 0; right: 0; top: 55%;
+				}
+			}
+		}
+
+		.price		{ display: block; }
+	}
+
+	.details		{ display: none; }
+	.options		{ display: none; }
+}
+
 
 .category-sale	{
 	.products-grid	{
