@@ -65,8 +65,8 @@
 					maxSlides: 3,
 					slideWidth			:	300,
 					infiniteLoop		:	true,
-					hideControlOnEnd	:	true,
-					easing				:	'ease-in-out'
+					hideControlOnEnd	:	true
+					//easing				:	'ease-in-out'
 				});
 
 				// Disabled link following on bxSlider nav arrow clicks
