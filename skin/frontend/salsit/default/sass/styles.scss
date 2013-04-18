@@ -426,6 +426,12 @@ input, select, textarea	{ color: $body-color; text-shadow: none; font-weight: no
 
 .category-hot-styles	{
 
+	.category-image		{ position: relative; }
+
+	.category-menu		{ position: absolute; bottom: 2em; right: 2em; @include rem(font-size, 1.5rem);
+		a	{ font-family: "Hand of Sean"; color: $color-brand; }
+	}
+
 	.products-grid 	{
 		.product-name	{
 			a			{

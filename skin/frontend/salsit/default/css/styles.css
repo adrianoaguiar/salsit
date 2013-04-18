@@ -641,6 +641,9 @@ input, select, textarea { color: #333333; text-shadow: none; font-weight: normal
 
 .short_description { font-size: 12px; }
 
+.category-hot-styles .category-image { position: relative; }
+.category-hot-styles .category-menu { position: absolute; bottom: 2em; right: 2em; font-size: 24px; font-size: 1.5rem; }
+.category-hot-styles .category-menu a { font-family: "Hand of Sean"; color: #ff33cc; }
 .category-hot-styles .products-grid .product-name a { color: #ff33cc; }
 .category-hot-styles .products-grid .price_box { display: none; }
 .category-hot-styles .price { text-transform: uppercase; font-weight: 700; font-size: 13px; font-size: 0.825rem; }
