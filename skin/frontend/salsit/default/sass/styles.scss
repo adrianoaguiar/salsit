@@ -486,6 +486,7 @@ input, select, textarea	{ color: $body-color; text-shadow: none; font-weight: no
 
 				&:nth-child(3n+1)	{ clear: both; } */
 
+				.checkbox			{ display: none; }
 				.product-image		{ width: 24%; float: left; }
 				.product-details	{ width: 60%; position: absolute; top: 0; bottom: 0; right: 0; }
 				.product-name	{ 

@@ -81,9 +81,9 @@
 
 
 		hot_styles: function() {
-console.log('adsfsda');
-			if ($("body").hasClass("category-hot-styles")) { console.log('asdf');
-				$(".category-image").append('<div class="category-menu"><a href="/hot-styles/be-cute">Be Cute</a> | <a href="/hot-styles/be-wild">Be Wild</a></div>');
+
+			if ($("body").hasClass("category-hot-styles")) {
+				//$(".category-image").append('<div class="category-menu"><a href="/hot-styles/be-cute">Be Cute</a> | <a href="/hot-styles/be-wild">Be Wild</a></div>');
 			}
 
 

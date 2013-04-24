@@ -666,6 +666,7 @@ input, select, textarea { color: #333333; text-shadow: none; font-weight: normal
 .product.hot_style_product .related .mini-products-list .item { display: block; margin: 0 0 0.5em; position: relative; overflow: auto; 				                                                                       /* float: left; width: 33.3%; padding: 2.5%;
 
 				&:nth-child(3n+1)	{ clear: both; } */ }
+.product.hot_style_product .related .mini-products-list .item .checkbox { display: none; }
 .product.hot_style_product .related .mini-products-list .item .product-image { width: 24%; float: left; }
 .product.hot_style_product .related .mini-products-list .item .product-details { width: 60%; position: absolute; top: 0; bottom: 0; right: 0; }
 .product.hot_style_product .related .mini-products-list .item .product-name { position: absolute; left: 0; right: 0; bottom: 55%; margin: 0; font-size: 14px; font-size: 0.875rem; font-family: "Hand of Sean"; font-weight: normal; }
